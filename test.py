@@ -2,10 +2,11 @@ import sklearn
 from string import atof
 from matplotlib import pyplot as plt
 from sklearn import neighbors
+from sklearn.cross_validation import train_test_split
 from sklearn import linear_model
 import numpy as np
 import sys
-from InitData import IniData
+from initData import IniData
 reload(sys)
 def LR(test,clf):
     p=clf.predict(test)
@@ -23,7 +24,9 @@ def getErr(trainData,trainTarget,testData,testTarget):
             erro=erro+1
         else:
             continue
+    print num
     print float(erro)/num
+
 def getErr1(trainData,trainTarget,testData,testTarget,k):
     clf=neighbors.KNeighborsClassifier(k)
     clf.fit(trainData,trainTarget)
