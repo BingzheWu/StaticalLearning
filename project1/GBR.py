@@ -29,6 +29,7 @@ if __name__=="__main__":
     plt.xlabel('Relative Importance')
     plt.title('Variable Importance')
     plt.show()
+    #print Data
     print "GBR(Boston)Error:"+str(mean_squared_error(testTarget,y_pred))
     plt.plot(range(len(testTarget)),y_pred,'r--',label='Predict Price')
     plt.plot(X,testTarget,'g',label='True Price')

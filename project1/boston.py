@@ -30,4 +30,5 @@ if __name__=="__main__":
         legend=plt.legend()
         plt.title(name+" (Boston)")
         plt.ylabel("Price(1000 USD)")
+        plt.savefig(name,format='png')
         plt.show()
