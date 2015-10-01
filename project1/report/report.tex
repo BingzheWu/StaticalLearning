@@ -5,8 +5,8 @@
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
-\author{吴秉哲}
-\title{算法介绍}
+\author{WuBingzhe}
+\title{Algorithm Introduction}
 \begin{document}
     \maketitle
     \section{Algorithm Introduction}
@@ -72,6 +72,10 @@
     direction is the negative gradient of the loss function evaluated at the current model $F_{m-1}$ which can becalculated for 
     any differentiable loss function:
     \begin{equation*}
-        F_m(x)=F_{m-1}(x)+\gamma_m\sum_{i=1}^{n}
+        F_m(x)=F_{m-1}(x)+\gamma_m\sum_{i=1}^{n}\nabla_{F}L(y_i,F_{m-1}(x_i))
+    \end{equation*}
+    Where the step length $\gamma_m$ is chosen in line searh:
+    \begin{equation*}
+    \gamma_m=arg\underset{\gamma}{min\,}\sum_{i=1}^{n}L(y_i,F_{m-1}(x_i)-\gamma\dfrac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)})
     \end{equation*}
 \end{document}
