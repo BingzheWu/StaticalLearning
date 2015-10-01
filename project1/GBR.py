@@ -28,14 +28,19 @@ if __name__=="__main__":
     plt.yticks(pos,boston.feature_names[sortedIdx])
     plt.xlabel('Relative Importance')
     plt.title('Variable Importance')
+    plt.savefig("Importance",format='png')
     plt.show()
     #print Data
     print "GBR(Boston)Error:"+str(mean_squared_error(testTarget,y_pred))
-    plt.plot(range(len(testTarget)),y_pred,'r--',label='Predict Price')
-    plt.plot(X,testTarget,'g',label='True Price')
+    plt.plot(range(len(testTarget)),y_pred,label='Predict Price')
+    print "test"+" true"
+    for i in range(len(y_pred)):
+        print str(y_pred[i])+" "+str(testTarget[i])
+    plt.plot(X,testTarget,label='True Price')
     legend=plt.legend()
     plt.title("GBR"+" (Boston)")
     plt.ylabel("Price(1000 USD)")
+    plt.savefig("GBR",format='png')
     plt.show()
 
 

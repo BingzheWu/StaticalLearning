@@ -46,7 +46,18 @@
     where $\alpha$is a constant and $||\omega||_1$is the $\mathcal{l}_1$-norm of the parameter vector.
     \subsection{Gradient Tree Boosting}
     Gradient Boosted Regression Trees(GBRT) is a generalizition of boosting to arbitary
-    differentiable loss function.GBRT is an accurate and effective  procedure that can be used for 
-    both regression and classification problems.
-
+    differentiable loss function.Like other boosting methods,gradients boosting commbines weak learners into a single strong learner,in an iterative
+    fashion.It is easiest to explain in the least-squares regression setting,where the goal is to learn a model $F$ that predicts values$\hat{y}=F(x)$
+    ,minimizing the mean mean squared error$(\hat{y}-y)^2$to the true values y.
+    
+    GBRT considers additive models of the following form:
+    \begin{equation*}
+        F(x)=\sum_{m=1}^{M}\gamma_{m}h_m(x)
+    \end{equation*}
+    where$h_m(x)$are the basis functions which are usually called weak learners in the context of boosting.
+    Gradient Tree Boosting uses decision trees of fixed of size as weak learns.Decision trees have a number of 
+    abilities that make them valuable for boosting algorithms GBRT builds the additive model in a forward stagewise fashion:
+    \begin{equation*}
+        F_m(x)=F_{m-1}(x)+\gamma_mh_m(x)
+    \end{equation*}
 \end{document}

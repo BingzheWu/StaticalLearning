@@ -1,0 +1,4 @@
+LR(Boston)Error:22.7858132062
+RidgeR(Boston)Error:22.9283726371
+Lasso(Boston)Error:23.1933857877
+Elastic Net(Boston)Error:27.7513383094
