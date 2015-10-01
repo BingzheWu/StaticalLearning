@@ -12,6 +12,9 @@ if __name__=="__main__":
 #Get the trainning data and test data
     rng=np.random.RandomState(13)
     trainFeatures,testFeatures,trainTarget,testTarget=train_test_split(boston.data,boston.target,test_size=len(boston.target)/3,random_state=rng)
+    trainFeatures[:,0]=np.log10(trainFeatures[:,0])
+    testFeatures[:,0]=np.log10(testFeatures[:,0])
+    
 #Create Reg
     RG=[
             ("LR",linear_model.LinearRegression()),

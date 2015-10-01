@@ -12,6 +12,8 @@ if __name__=="__main__":
 #Get the trainning data and test data
     rng=np.random.RandomState(13)
     trainFeatures,testFeatures,trainTarget,testTarget=train_test_split(boston.data,boston.target,test_size=len(boston.target)/3,random_state=rng)
+    trainFeatures[:,0]=np.log(trainFeatures[:,0])
+    testFeatures[:,0]=np.log(testFeatures[:,0])
 #set parameter
     params={'n_estimators': 500,'max_depth':4,'min_samples_split':1,'learning_rate':0.01,'loss':'ls'}
 #train 
