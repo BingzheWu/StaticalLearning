@@ -18,20 +18,23 @@ if __name__=="__main__":
 #Create Reg
     RG=[
             ("LR",linear_model.LinearRegression()),
-            ("RidgeR",linear_model.RidgeCV()),
+            ("RidgeR",linear_model.RidgeCV(alphas=[0.01,0.05,0.1,0.5,1.0,10.0])),
             ("Lasso",linear_model.LassoCV(alphas=[0.01,0.05,0.1,0.5,1.0,10.0])),
             ("Elastic Net",linear_model.ElasticNetCV()),
     ]
 #Draw
     X=range(len(testTarget))
+    w1=open("parameter",'w')
     for name,rg in RG:
         w=open(name+"data",'w')
         w.write("testDta trueData\n")
         rg.fit(trainFeatures,trainTarget)
+        print name
+        print rg.coef_
         y_pred=rg.predict(testFeatures)
         for i in range(len(y_pred)):
             w.write(str(y_pred[i])+" "+str(testTarget[i])+"\n")
-        print name+"(Boston)Error:"+str(mean_squared_error(testTarget,y_pred))
+        #print name+"(Boston)Error:"+str(mean_squared_error(testTarget,y_pred))
         plt.plot(range(len(testTarget)),y_pred,'r--',label='Predict Price')
         plt.plot(X,testTarget,'g',label='True Price')
         legend=plt.legend()
