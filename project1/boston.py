@@ -24,7 +24,6 @@ if __name__=="__main__":
     ]
 #Draw
     X=range(len(testTarget))
-    w1=open("parameter",'w')
     for name,rg in RG:
         w=open(name+"data",'w')
         w.write("testDta trueData\n")
