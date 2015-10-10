@@ -17,7 +17,7 @@ if __name__=="__main__":
     
 #Create Reg
     RG=[
-           # ("LR",linear_model.LinearRegression()),
+            ("LR",linear_model.LinearRegression()),
             ("RidgeR",linear_model.Ridge(alpha=0.5)),
             ("Lasso",linear_model.Lasso(alpha=0.01)),
             ("Elastic Net",linear_model.ElasticNetCV()),
@@ -36,7 +36,7 @@ if __name__=="__main__":
         #print name+"(Boston)Error:"+str(mean_squared_error(testTarget,y_pred))
         plt.plot(range(len(testTarget)),y_pred,'r--',label='Predict Price')
         plt.plot(X,testTarget,'g',label='True Price')
-        if name=="RidgeR":
+        if name=="LR":
             plt.legend(loc='upper right')
         plt.title(name+" (Boston)")
         plt.ylabel("Price(1000 USD)")
