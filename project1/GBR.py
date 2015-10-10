@@ -20,6 +20,7 @@ if __name__=="__main__":
     rg=ensemble.GradientBoostingRegressor(**params)
 #Plot feature importance 
     rg.fit(trainFeatures,trainTarget)
+    rg
     y_pred=rg.predict(testFeatures)
     featureImportance=rg.feature_importances_
     X=range(len(testTarget))
